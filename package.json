@@ -1,12 +1,12 @@
 {
-  "name": "htn",
+  "name": "Registeration-System",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Zhong Zheng",
   "license": "ISC",
   "dependencies": {
     "alert": "^5.0.10",
