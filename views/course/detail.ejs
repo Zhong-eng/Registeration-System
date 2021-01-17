@@ -1,0 +1,45 @@
+<% layout('layouts/boilertemplate.ejs') %> 
+
+<div class="card mt-5 bg-light" style="width: 66rem;">
+    <div class="card-header">
+        <h2>Detailed Information</h2>
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h4 class="d-inline">Name: </h4><%= course.name %> </li>
+    <li class="list-group-item"><h4 class="d-inline">Credits:</h4> <%= course.credits %> </li>
+    <li class="list-group-item"><h4 class="d-inline">Instructor: </h4><%= course.instructor_name %> </li>
+    <li class="list-group-item"><h4 class="d-inline">Capacity:</h4> <%= course.capacity %> </li>
+    <li class="list-group-item"><h4 class="d-inline">Enrolled:</h4> <%= course.students.length %> </li>
+    <li class="list-group-item"><h4 class="d-inline">Description: </h4><%= course.description %> </li>
+    </ul>
+</div>
+       
+    <% if(currentUser.occupation === "Instructor") {%>
+        <div class="card mt-5" style="width: 66rem;">
+            <div class="card-header">
+                <h3>Student List</h3>
+            </div>  
+        <ul class="list-group list-group-flush">
+            <% for(let student of course.students){ %>
+                <li class="list-group-item"><%= student.username %> </li> 
+            <%}%>
+            <% if(course.students.length === 0) { %>
+                <li class="list-group-item">No students take this course</li>
+           <% } %>
+        </ul> 
+    </div>
+        
+    
+        <% if(course.instructor_name === currentUser.username) {%>
+            <div class="mt-2 d-inline">
+            <a href="/course/<%= course._id %>/update " class="btn btn-info btn-sm">Edit course</a>
+            <form action='/course/<%=course._id%>/delete?_method=DELETE'' method="POST" class="m-1 d-inline">
+                <button class="btn btn-danger btn-sm">Delete Course</button>
+            </form> 
+        </div>
+        <% } %> 
+        <a href="/course/instructor" class="btn btn-secondary btn-sm m-3">Back to the course list</a>
+    <% } else{ %> 
+        <a href="/course/student" class="btn btn-secondary btn-sm m-3">Back to the course list</a>
+    <% } %> 
+

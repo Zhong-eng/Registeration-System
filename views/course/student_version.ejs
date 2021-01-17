@@ -1,0 +1,22 @@
+<% layout('layouts/boilertemplate.ejs') %> 
+    <div class="border mt-3 p-3 bg-light">
+        <h1>Here are courses available to you:</h1>
+        <ul class="list-group m-3">
+        <% for (let course of courses) { %> 
+            <% if (course.students.indexOf(currentUser._id) < 0) {%>
+                <li class="list-group-item">
+                    <%=course.name%>
+                    <a href="/course/<%=course._id%>">View more</a>
+                    <% if (course.capacity > course.students.length) {%>
+                    <form action='/course/<%=course._id%>/add/<%=currentUser._id%>?_method=PUT' method="POST" class='d-inline m-4'>
+                        <button class="btn btn-success btn-sm">Register!</button>
+                    </form>
+                    <% } else { %>
+                        <button class="btn btn-sm btn-secondary ml-4"disabled>No space</button> 
+                    <% } %> 
+                </li>
+            <% } %> 
+        <% } %> 
+    </ul>
+    <a href="/user">Back to my cousre list</a>
+</div>

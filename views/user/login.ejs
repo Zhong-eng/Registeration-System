@@ -1,0 +1,17 @@
+<% layout('layouts/boilertemplate.ejs') %> 
+    <div class="border m-3 p-3 bg-light">
+        <h1>Login</h1>
+        
+        <form action="/user/login" method="POST">
+
+            <div class="mb-3">
+                <label for="username" class="col-form-label">Usename</label>
+                <input type="text" name="username" id="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="col-form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </div>

@@ -1,0 +1,28 @@
+<% layout('layouts/boilertemplate.ejs') %> 
+<div class="border m-3 p-3 bg-light">
+    <h1>Create a new course</h1>
+    <form action="/course/create"  method="POST">
+        <div class="mb-3">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name"class="form-control" required>
+            
+        </div>
+        <div class="mb-3">
+            <label for="credits">Credits</label>
+            <input type="number" name="credits" id="credits" class="form-control" required>
+            
+        </div>
+        <div class="mb-3">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="5" class="form-control" required></textarea>
+            
+        </div>
+        <div class="mb-3">
+            <label for="capacity">Capacity</label>
+            <input type="number" name="capacity" id="capacity" class="form-control" required>
+        </div>
+        <button class="btn btn-success btn-sm">Create!</button>
+        <a href="/user" class="btn btn-secondary btn-sm">Cancel</a>
+    </form>
+</div>
+    

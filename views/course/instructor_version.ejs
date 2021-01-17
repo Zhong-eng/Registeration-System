@@ -1,0 +1,22 @@
+<% layout('layouts/boilertemplate.ejs') %> 
+<div class="border m-3 p-3">
+        <h1>Here are existing courses:</h1>
+        <ul class="list-group">
+        <% for (let course of courses) { %> 
+                <li class="list-group-item">
+                    <%=course.name%>
+                    <a href="/course/<%=course._id%>">View more</a>
+                    <% if(course.instructor_name === currentUser.username) {%>
+                        <div class="mt-2">
+                        <a href="/course/<%= course._id %>/update " class="btn btn-info btn-sm">Edit course</a>
+                        <form action='/course/<%=course._id%>/delete?_method=DELETE'' method="POST" class="d-inline m-3 ">
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </form> 
+                    </div>
+                    <% } %> 
+                </li>
+        <% } %> 
+        </ul>
+        <a href="/course/create" class="btn btn-success m-3">Create a new course</a>
+        <a href="/user"class="btn btn-secondary m-3" >Back to my courses</a>
+    </div>

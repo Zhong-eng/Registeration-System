@@ -1,0 +1,27 @@
+<% layout('layouts/boilertemplate.ejs') %> 
+    <div class="border m-3 p-3 bg-light">
+        <h1>Create a new account</h1>
+        <form action="/user/register" method="POST">
+            <div class="mb-3">
+                <label for="username" class="col-form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="col-form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="col-form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="occupation" class="col-form-label" >Sign up as:</label>
+                <select name="occupation" id="occupation" required>
+                    <option value="Student">Student</option>
+                    <option value="Instructor">Instructor</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
