@@ -1,6 +1,6 @@
-# Registeration-System
+# Registration-System
 
-This is a simple registeration system. 
+This is a simple registration system. 
 You can choose to register as a student or an instructor.
 
 ## Register as an instructor
